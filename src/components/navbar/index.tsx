@@ -27,27 +27,27 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50  ${
         scrolled
           ? "border-b border-border bg-background/80 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4">
         <a
           href="#hero"
           className="text-sm font-semibold tracking-tight text-foreground"
         >
-          vc.
+          &lt; Victor Crepaldi Gomes /&gt;
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
-          <nav className="flex items-center gap-1">
+        <div className="hidden items-center gap-0.5 md:flex">
+          <nav className="flex items-center gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-md px-2 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -81,13 +81,13 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-md md:hidden"
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
+            <div className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="rounded-md px-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>
