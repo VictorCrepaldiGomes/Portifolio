@@ -77,7 +77,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* hide native scrollbar visuals but keep scrolling functional */
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
   -ms-overflow-style: none;
@@ -163,7 +162,10 @@ main > section + section {
   padding-block: 6rem;
 }
 
-/* Hide visual scrollbar in WebKit while preserving scroll functionality */
+main > section:nth-of-type(n + 3) {
+  border-top: 1px solid var(--border);
+}
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -230,6 +232,39 @@ main > section + section {
 
 @media (prefers-reduced-motion: reduce) {
   .tech-track {
+    animation: none;
+  }
+}
+
+@keyframes heart-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  16% {
+    transform: scale(1.2);
+  }
+  32% {
+    transform: scale(0.95);
+  }
+  48% {
+    transform: scale(1.12);
+  }
+  64% {
+    transform: scale(0.98);
+  }
+}
+
+.heart-easter-egg {
+  color: oklch(0.62 0.24 24);
+  fill: currentColor;
+  filter: drop-shadow(0 0 6px color-mix(in oklab, currentColor 50%, transparent));
+  animation: heart-pulse 1s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart-easter-egg {
     animation: none;
   }
 }

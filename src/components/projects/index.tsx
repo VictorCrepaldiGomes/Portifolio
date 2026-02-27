@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import SectionHeading from "@/components/section-heading";
 
 const projects = [
@@ -10,42 +9,35 @@ const projects = [
     description:
       "Aplicação de agendamento integrada ao Google Calendar com autenticação OAuth, permitindo que usuários definam sua disponibilidade e recebam agendamentos.",
     tags: ["Next.js", "TypeScript", "Prisma", "Google APIs"],
-    href: "https://github.com/VictorCrepaldiGomes",
+    href: "https://github.com/VictorCrepaldiGomes/Ignite-Call-Rocketseat",
   },
   {
     title: "PizzaShop",
     description:
       "Dashboard de gerenciamento para pizzarias com métricas, pedidos em tempo real e controle de status — construído com React e shadcn/ui.",
     tags: ["React", "TypeScript", "shadcn/ui", "Tailwind CSS"],
-    href: "https://github.com/VictorCrepaldiGomes",
+    href: "https://github.com/VictorCrepaldiGomes/MyPizza-RocketSeat",
   },
   {
-    title: "DT Money",
+    title: "Mobile Comprar",
     description:
-      "Aplicação de controle financeiro pessoal com cadastro de transações, categorização e resumo de entradas e saídas.",
-    tags: ["React", "TypeScript", "Styled-Components"],
-    href: "https://github.com/VictorCrepaldiGomes",
-  },
-  {
-    title: "Breast Cancer Detection",
-    description:
-      "Projeto de TCC utilizando redes neurais para detecção de câncer de mama a partir de imagens médicas com alta taxa de acurácia.",
-    tags: ["Python", "TensorFlow", "Keras", "Machine Learning"],
-    href: "https://github.com/VictorCrepaldiGomes",
+      "Aplicação mobile desenvolvida durante a trilha Rocketseat, focada em fluxo de compra e experiência de navegação em telas pequenas.",
+    tags: ["React Native", "TypeScript", "Mobile"],
+    href: "https://github.com/VictorCrepaldiGomes/Mobile-ComprarRocketseat",
   },
   {
     title: "Portfólio Pessoal",
     description:
       "Site pessoal construído com Next.js e design minimalista, focado em performance e acessibilidade.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
-    href: "https://victorgomes.dev.br",
+    href: "https://github.com/VictorCrepaldiGomes/Portifolio2.0",
   },
   {
     title: "Web Scraper",
     description:
       "Ferramenta de web scraping em Python para coleta automatizada de dados de páginas web com parsing inteligente.",
     tags: ["Python", "BeautifulSoup", "Automação"],
-    href: "https://github.com/VictorCrepaldiGomes",
+    href: "https://github.com/VictorCrepaldiGomes/WebScraping",
   },
 ];
 
@@ -57,7 +49,7 @@ export default function Projects() {
         description="Alguns dos projetos que construí."
       />
 
-      <div className="mt-10 space-y-0">
+      <div className="mt-10 space-y-3">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -70,7 +62,7 @@ export default function Projects() {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block py-6"
+              className="group block rounded-xl border bg-card/25 p-5 transition-colors hover:bg-card/40 sm:p-6"
             >
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
@@ -91,7 +83,6 @@ export default function Projects() {
                 </div>
               </div>
             </a>
-            {index < projects.length - 1 && <Separator />}
           </motion.div>
         ))}
       </div>

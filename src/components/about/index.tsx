@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import SectionHeading from "@/components/section-heading";
 
@@ -25,18 +33,39 @@ const skillGroups = [
   },
 ];
 
+const profileDetails = [
+  {
+    label: "Localização",
+    value: "Dracena, São Paulo",
+    icon: MapPin,
+  },
+  {
+    label: "Formação",
+    value: "ADS — FUNDEC",
+    icon: GraduationCap,
+  },
+  {
+    label: "Atuação",
+    value: "Desenvolvedor Júnior",
+    icon: BriefcaseBusiness,
+  },
+];
+
 export default function About() {
   return (
     <section id="about">
-      <SectionHeading title="Sobre" />
+      <SectionHeading
+        title="Sobre"
+        description="Uma visão rápida sobre minha trajetória, foco e stack principal."
+      />
 
-      <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
-        <motion.div
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+        <motion.article
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="space-y-4"
+          className="space-y-4 rounded-2xl border bg-card/40 p-6 md:p-8"
         >
           <p className="leading-relaxed text-muted-foreground">
             Tenho 22 anos e sou formado em Análise e Desenvolvimento de Sistemas
@@ -50,31 +79,90 @@ export default function About() {
             de software — do frontend ao backend. Busco sempre entregar
             experiências limpas, rápidas e bem pensadas.
           </p>
-        </motion.div>
+          <div className="grid gap-3 pt-2 md:grid-cols-3">
+            {profileDetails.map((item) => (
+              <div
+                key={item.label}
+                className="min-w-0 rounded-xl border bg-background/60 p-3"
+              >
+                <item.icon className="size-4 text-muted-foreground" />
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.label}
+                </p>
+                <p className="text-sm leading-snug break-words [overflow-wrap:anywhere] text-foreground">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.article>
 
-        <motion.div
+        <motion.aside
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-4"
+          className="rounded-2xl border bg-card/40 px-6 py-6"
         >
-          <h3 className="text-sm font-medium text-foreground">Detalhes</h3>
-          <dl className="space-y-3 text-sm">
-            <div>
-              <dt className="text-muted-foreground">Localização</dt>
-              <dd className="text-foreground">Dracena, São Paulo</dd>
+          <div className="space-y-5">
+            <Avatar className="size-24 border border-border/80 shadow-sm">
+              <AvatarImage
+                src="https://github.com/VictorCrepaldiGomes.png?size=240"
+                alt="Foto de Victor Crepaldi Gomes"
+              />
+              <AvatarFallback className="text-base font-semibold tracking-wide">
+                VC
+              </AvatarFallback>
+            </Avatar>
+
+            <div className="space-y-1">
+              <h3 className="text-base font-semibold tracking-tight text-foreground">
+                Victor Crepaldi Gomes
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Desenvolvedor Full Stack
+              </p>
             </div>
-            <div>
-              <dt className="text-muted-foreground">Formação</dt>
-              <dd className="text-foreground">ADS — FUNDEC</dd>
+
+            <div className="space-y-3">
+              {profileDetails.map((item) => (
+                <div
+                  key={`profile-${item.label}`}
+                  className="min-w-0 flex items-start gap-3 text-sm"
+                >
+                  <item.icon className="mt-0.5 size-4 text-muted-foreground" />
+                  <div className="min-w-0">
+                    <p className="text-muted-foreground">{item.label}</p>
+                    <p className="leading-snug break-words [overflow-wrap:anywhere] text-foreground">
+                      {item.value}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div>
-              <dt className="text-muted-foreground">Foco</dt>
-              <dd className="text-foreground">Full Stack</dd>
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              <Button size="sm" asChild>
+                <a href="#contact">Falar comigo</a>
+              </Button>
+              <Button size="sm" variant="outline" asChild>
+                <a
+                  href="/curriculo.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    window.open("/curriculo.pdf", "_blank", "noopener,noreferrer");
+                  }}
+                  className="inline-flex items-center gap-1.5"
+                >
+                  Currículo
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              </Button>
             </div>
-          </dl>
-        </motion.div>
+          </div>
+        </motion.aside>
       </div>
 
       <Separator className="my-10" />
@@ -88,7 +176,10 @@ export default function About() {
       >
         <h3 className="text-sm font-medium text-foreground">Tecnologias</h3>
         {skillGroups.map((group) => (
-          <div key={group.label}>
+          <div
+            key={group.label}
+            className="rounded-xl border bg-card/30 px-4 py-4 sm:px-5"
+          >
             <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               {group.label}
             </p>

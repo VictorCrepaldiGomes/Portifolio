@@ -137,9 +137,13 @@ function HeroActions() {
 
         <Button className="w-full sm:w-auto" variant="outline" asChild>
           <a
-            href="https://victorgomes.dev.br/diploma"
+            href="/diploma.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(event) => {
+              event.preventDefault();
+              window.open("/diploma.pdf", "_blank", "noopener,noreferrer");
+            }}
             className="flex items-center justify-center gap-2"
           >
             <GraduationCap className="size-4" />
@@ -152,6 +156,10 @@ function HeroActions() {
             href="/curriculo.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(event) => {
+              event.preventDefault();
+              window.open("/curriculo.pdf", "_blank", "noopener,noreferrer");
+            }}
             className="flex items-center justify-center gap-2"
           >
             <FileText className="size-4" />
