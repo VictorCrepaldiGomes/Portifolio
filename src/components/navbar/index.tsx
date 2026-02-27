@@ -27,7 +27,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
-      className={`fixed top-0 left-0 right-0 z-50  ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors ${
         scrolled
           ? "border-b border-border bg-background/80 backdrop-blur-md"
           : "bg-transparent"
@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4">
         <a
           href="#hero"
-          className="text-sm font-semibold tracking-tight text-foreground"
+          className="text-sm font-semibold tracking-tight text-foreground transition-colors"
         >
           &lt; Victor Crepaldi Gomes /&gt;
         </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-md transition-colors md:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (

@@ -91,17 +91,13 @@ html {
 
 body,
 :root,
-.bg-background,
-.text-foreground,
-.border-border {
+:where(.bg-background, .text-foreground, .border-border) {
   transition-property: background-color, color, border-color;
   transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-duration: 420ms;
 }
 
-.backdrop-blur-md,
-.backdrop-blur-sm,
-.backdrop-blur-lg {
+:where(.backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur-lg) {
   transition:
     background-color 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 420ms;
@@ -123,16 +119,13 @@ input[type="submit"],
   -webkit-tap-highlight-color: transparent;
 }
 
-header,
-.fixed.top-0 {
+:where(header, .fixed.top-0) {
   transition-property: background-color, color, border-color;
   transition-duration: 420ms;
   transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-a,
-.text-foreground,
-.text-muted-foreground {
+:where(a, .text-foreground, .text-muted-foreground) {
   transition: color 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
