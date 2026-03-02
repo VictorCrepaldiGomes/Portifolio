@@ -164,7 +164,7 @@ export default function Footer() {
             <p className="font-semibold text-foreground">Te amo para sempre!</p>
 
             <p>
-              Maria Vitória, meu amor! <span aria-hidden="true">❤️</span>
+              Maria Victória, meu amor! <span aria-hidden="true">❤️</span>
             </p>
           </div>
         </DialogContent>
