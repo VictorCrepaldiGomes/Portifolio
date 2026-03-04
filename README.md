@@ -1,75 +1,64 @@
-# React + TypeScript + Vite
+# Portfólio — Victor Crepaldi Gomes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um portfólio moderno e minimalista, construído com foco total em **design**, **aparência** e **experiência do usuário**.
+A ideia aqui é apresentar projetos e habilidades com uma UI limpa, rápida e consistente — com animações sutis, boa tipografia e navegação objetiva.
 
-Currently, two official plugins are available:
+## ✨ Destaques
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* UI minimalista com foco em **clareza e hierarquia visual**
+* Componentes com **padrão consistente** (shadcn/ui)
+* Estilização rápida e escalável com **Tailwind CSS**
+* Performance e DX com **React + Vite**
+* Acessibilidade e responsividade como prioridade
 
-## React Compiler
+## 🧰 Tecnologias
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* **React**
+* **Vite**
+* **Tailwind CSS**
+* **shadcn/ui**
 
-Note: This will impact Vite dev & build performances.
+## ✅ Requisitos
 
-## Expanding the ESLint configuration
+* **Node.js** (recomendado: LTS)
+* **pnpm** (ou npm/yarn)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Como rodar o projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# instalar dependências
+pnpm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# rodar em modo dev
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Abra no navegador: `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Build de produção
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build
+pnpm preview
 ```
+
+## 🗂️ Estrutura (exemplo)
+
+```txt
+src/
+  components/     # componentes reutilizáveis (UI)
+  pages/          # seções/páginas do portfólio
+  assets/         # imagens, ícones, etc
+  styles/         # estilos globais (se houver)
+```
+
+## 🎨 Design & UX (o que eu priorizei)
+
+* **Consistência visual:** espaçamentos, tipografia e componentes alinhados
+* **Feedbacks claros:** hover, focus, loading e estados vazios
+* **Leitura e escaneabilidade:** títulos fortes + conteúdo objetivo
+* **Responsividade real:** layout pensado mobile-first e refinado no desktop
+
+## 📄 Licença
+
+Este projeto é de uso pessoal. Sinta-se livre para se inspirar, mas evite copiar integralmente.
