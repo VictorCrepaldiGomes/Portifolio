@@ -6,9 +6,11 @@ import ThemeToggle from "@/components/theme-toggle";
 
 const navLinks = [
   { label: "Início", href: "#hero" },
+  { label: "Música", href: "#music" },
   { label: "Sobre", href: "#about" },
   { label: "Experiência", href: "#experience" },
   { label: "Projetos", href: "#projects" },
+  { label: "Jogo", href: "#game" },
   { label: "Contato", href: "#contact" },
 ];
 
