@@ -1,27 +1,71 @@
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import About from "@/components/about";
-import Experience from "@/components/experience";
-import Projects from "@/components/projects";
-import Music from "@/components/music";
-import Jogo from "@/components/game";
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
+import { lazy, Suspense, useEffect } from 'react'
+import { MotionConfig } from 'motion/react'
+
+import { useI18n } from '@/lib/i18n'
+import { useSeo } from '@/lib/seo'
+import { printConsoleArt } from '@/lib/console-art'
+import { useKonamiCode, useSecretWord } from '@/hooks/use-keyboard'
+import { useCommandPalette } from '@/components/command/command-context'
+import { useEggs } from '@/components/easter-eggs/egg-context'
+import { SiteHeader } from '@/components/layout/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { MusicDock } from '@/components/music/music-dock'
+import { Hero } from '@/components/sections/hero'
+import { About } from '@/components/sections/about'
+import { Experience } from '@/components/sections/experience'
+import { Work } from '@/components/sections/work'
+import { GitHubActivity } from '@/components/sections/github'
+import { Contact } from '@/components/sections/contact'
+
+const CommandPalette = lazy(() =>
+  import('@/components/command/command-palette').then((m) => ({ default: m.CommandPalette })),
+)
+const SnakeGame = lazy(() =>
+  import('@/components/easter-eggs/snake').then((m) => ({ default: m.SnakeGame })),
+)
+const LoveNote = lazy(() =>
+  import('@/components/easter-eggs/love-note').then((m) => ({ default: m.LoveNote })),
+)
 
 export default function App() {
+  const { t } = useI18n()
+  const { hasOpened: paletteMounted } = useCommandPalette()
+  const { snakeOpen, setSnakeOpen, noteOpen, setNoteOpen } = useEggs()
+  useSeo()
+
+  useKonamiCode(() => setSnakeOpen(true))
+  useSecretWord('maria', () => setNoteOpen(true))
+
+  useEffect(printConsoleArt, [])
+
   return (
-    <div className="relative min-h-svh bg-background text-foreground antialiased">
-      <Navbar />
-      <main className="mx-auto max-w-3xl px-6 space-y-24">
+    <MotionConfig reducedMotion="user">
+      <a
+        href="#about"
+        className="focus:bg-background focus:text-foreground focus:ring-brand sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100 focus:rounded-md focus:px-4 focus:py-2 focus:ring-2"
+      >
+        {t('a11y.skip')}
+      </a>
+
+      <SiteHeader />
+
+      <main id="main">
         <Hero />
-        <Music />
         <About />
         <Experience />
-        <Projects />
-        <Jogo />
+        <Work />
+        <GitHubActivity />
         <Contact />
       </main>
-      <Footer />
-    </div>
-  );
+
+      <SiteFooter />
+      <MusicDock />
+
+      <Suspense fallback={null}>
+        {paletteMounted && <CommandPalette />}
+        {snakeOpen && <SnakeGame open={snakeOpen} onOpenChange={setSnakeOpen} />}
+        {noteOpen && <LoveNote open={noteOpen} onOpenChange={setNoteOpen} />}
+      </Suspense>
+    </MotionConfig>
+  )
 }

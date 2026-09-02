@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc"
+  ],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/components/ui/**"
+      ],
+      "rules": {
+        "react/only-export-components": "off"
+      }
+    },
+    {
+      "files": [
+        "src/lib/i18n.tsx",
+        "src/hooks/use-theme.tsx",
+        "src/components/command/command-context.tsx",
+        "src/components/music/music-context.tsx",
+        "src/components/easter-eggs/egg-context.tsx"
+      ],
+      "rules": {
+        "react/only-export-components": "off"
+      }
+    }
+  ]
+}

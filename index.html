@@ -2,33 +2,85 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Victor Crepaldi — Desenvolvedor Full Stack</title>
     <meta
       name="description"
-      content="Victor Crepaldi - Desenvolvedor Full Stack"
+      content="Desenvolvedor Full Stack em Dracena/SP. Construo interfaces limpas e rápidas com React, TypeScript e Node.js."
     />
-    <meta name="theme-color" content="#0a0a0a" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta name="author" content="Victor Crepaldi Gomes" />
+    <link rel="canonical" href="https://www.victorgomes.dev.br/" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- The browser chrome follows the page, and is corrected at runtime. -->
+    <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Victor Crepaldi Gomes" />
+    <meta property="og:title" content="Victor Crepaldi — Desenvolvedor Full Stack" />
+    <meta
+      property="og:description"
+      content="Desenvolvedor Full Stack em Dracena/SP. Construo interfaces limpas e rápidas com React, TypeScript e Node.js."
     />
-    <title>Victor Crepaldi</title>
+    <meta property="og:url" content="https://www.victorgomes.dev.br/" />
+    <meta property="og:image" content="https://www.victorgomes.dev.br/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Victor Crepaldi Gomes — Full Stack Developer" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Victor Crepaldi — Desenvolvedor Full Stack" />
+    <meta
+      name="twitter:description"
+      content="Desenvolvedor Full Stack em Dracena/SP. Construo interfaces limpas e rápidas com React, TypeScript e Node.js."
+    />
+    <meta name="twitter:image" content="https://www.victorgomes.dev.br/og.png" />
+
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!--
+      Applies the stored theme before first paint. Without this the page flashes
+      light before React mounts, which is the most visible bug a dark site can
+      ship. Kept inline and tiny on purpose.
+    -->
     <script>
-      (function () {
-        var t = localStorage.getItem("theme");
-        if (
-          t === "dark" ||
-          (t !== "light" && matchMedia("(prefers-color-scheme:dark)").matches)
-        )
-          document.documentElement.classList.add("dark");
-      })();
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('vc.theme')
+          var dark =
+            stored === 'dark' ||
+            (stored !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+        } catch (e) {}
+      })()
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: monospace">
+        <h1>Victor Crepaldi Gomes</h1>
+        <p>Desenvolvedor Full Stack — Dracena, São Paulo, Brasil.</p>
+        <p>
+          Este site precisa de JavaScript. Você também pode me encontrar em
+          <a href="https://github.com/VictorCrepaldiGomes">GitHub</a> e
+          <a href="https://linkedin.com/in/victor-gomes-b067a3266">LinkedIn</a>, ou pelo e-mail
+          <a href="mailto:victorcrepaldigomes@gmail.com">victorcrepaldigomes@gmail.com</a>.
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

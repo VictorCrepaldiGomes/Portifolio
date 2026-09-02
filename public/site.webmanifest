@@ -1,0 +1,13 @@
+{
+  "name": "Victor Crepaldi Gomes — Full Stack Developer",
+  "short_name": "Victor Crepaldi",
+  "description": "Full Stack Developer building clean, fast interfaces with React, TypeScript and Node.js.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
